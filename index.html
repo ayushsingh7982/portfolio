@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Include Font Awesome CSS -->
+    <style>
+        /* Your existing CSS styles */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Hide overflow to prevent scrollbars */
+            position: relative; /* Set position to relative for absolute positioning of pseudo-elements */
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        section {
+            display: none;
+            padding: 20px;
+            background-color: #000;
+            transition: opacity 0.3s ease-in-out; /* Add transition for smoother section switch */
+        }
+
+        section.active {
+            display: block;
+        }
+
+        h2 {
+            color: #fff;
+        }
+
+        p {
+            color: #fff;
+        }
+
+        .contact-info {
+            margin-top: 10px;
+        }
+
+        .contact-info p {
+            margin-bottom: 5px;
+        }
+
+        .social-links {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .social-links a i {
+            width: 60px;
+            height: 60px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            line-height: 60px;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .social-links a span {
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .fab {
+            color: #FFD700; /* Adjusting icon color to gold */
+        }
+
+        /* Ray of light animation */
+        body::before, body::after {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 70%);
+            animation: rayOfLight 15s linear infinite;
+        }
+
+        @keyframes rayOfLight {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ayush Singh</h1>
+        <nav>
+            <ul>
+                <li><a href="#home"><i class="fas fa-home"></i></a></li>
+                <li><a href="#portfolio"><i class="fas fa-briefcase"></i></a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <section id="home" class="introduction active">
+        <h2 class="section-title">Introduction</h2>
+        <p class="section-content">Welcome to my portfolio! I'm Ayush Singh, a passionate web developer and video editor. With expertise in HTML, CSS, JavaScript, and video editing, I specialize in creating captivating digital experiences and visually stunning multimedia content. I'm dedicated to crafting websites and videos that not only look great but also engage and inspire audiences.</p>
+        <h2 class="section-title">Skills</h2>
+        <p class="section-content">Here are some of my skills:</p>
+        <ul class="section-content">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>DSA.cpp</li>
+            <li>Tailwind CSS</li>
+            <li>Adobe Premiere Pro</li>
+            <li>Adobe Photoshop Pro</li>
+        </ul>
+        <h2 class="section-title">Education</h2>
+        <p><li>Completed my 10th from KVS and secured 75.2%</li></p>
+        <p><li>Completed my 12th from GBSSS and secured 85.2%</li></p>
+        <p class="section-content"><li>I have doing my Bachelor's degree in Electronics and Communication Engineering from GGSIPU(2022-26).</li></p>
+        
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <h2 class="section-title">Portfolio</h2>
+        <p class="section-content">Here you can find some of my projects and works.</p>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <p>You can reach out to us via the following social media platforms:</p>
+        <div class="social-links">
+            <a href="https://twitter.com/Ayush8285" target="_blank"><i class="fab fa-twitter"></i><span>Twitter: Ayush8285</span></a>
+            <a href="https://www.instagram.com/krsnaronldo/" target="_blank"><i class="fab fa-instagram"></i><span>Instagram: ayushsingh7982</span></a>
+            <a href="https://github.com/ayushsingh7982" target="_blank"><i class="fab fa-github"></i><span>GitHub: ayushsingh7982</span></a> <!-- GitHub icon -->
+            <a href="mailto:singhayush8376@gmail.com" target="_blank"><i class="fas fa-envelope"></i><span>Email: singhayush8376@gmail.com</span></a>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                const sections = document.querySelectorAll('section');
+                sections.forEach(section => section.classList.remove('active'));
+                targetSection.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
